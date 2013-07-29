@@ -10,7 +10,6 @@ class WebServer:
     def index(self, *args, **kwargs):
         index = Handlers.index.Index(ui.index.Index(args, kwargs))
         return index.Process()
-		
 
 settings = os.path.join(os.path.dirname(__file__), 'settings.conf')
 

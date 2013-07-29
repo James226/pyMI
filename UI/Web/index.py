@@ -7,7 +7,7 @@ class Index(object):
 
     def SetText(self, val):
         self.value = val
-		
+
     def Callback(self, name):
         if name in self.Callbacks:
             self.Callbacks[name]()
