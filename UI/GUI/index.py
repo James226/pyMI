@@ -7,12 +7,12 @@ class Index(object):
         self.root.geometry("768x512")
         self.root.resizable(0, 0)
 
-        self.label = Label(self.root, name="HolderLabel", text="")
+        self.label = Label(self.root, name="holderLabel", text="")
         self.label.pack(pady=5)
         
         self.Callbacks = {}
 
-        Button(self.root, name="SubmitButton", text="Go!", command=lambda:self.Callback('Submit')).pack(pady=10)
+        Button(self.root, name="submitButton", text="Go!", command=lambda:self.Callback('Submit')).pack(pady=10)
 
     def SetText(self, val):
         self.label.config(text=val)
