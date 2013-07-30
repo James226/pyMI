@@ -5,7 +5,7 @@ import Tkinter
 class MockObject(object):
     def __init__(self, *p, **kw):
         self.__internaldict__ = { }
-        self.__receivedcalls__ = { }
+        self.__receivedcalls__ = [ ]
         if p is not () and 'name' in kw:
             p[0].children[kw['name']] = self
 
@@ -18,7 +18,10 @@ class MockObject(object):
         self.__dict__[name] = val
 
     def __call__(self, *p, **kw):
-        self.__receivedcalls__[p] = kw
+        self.__receivedcalls__.append((p,kw))
+
+    def __ReceivedCall__(self, *p, **kw):
+        return (p, kw) in self.__receivedcalls__
 
     def __add__(self, other):
         return self
@@ -49,6 +52,9 @@ class MockObject(object):
     def __setitem__(self, key, value):
         self.__internaldict__[key] = value
 
+    def __len__(self):
+        return len(self.__internaldict__)
+
     def mainloop(self):
         pass
 
@@ -66,5 +72,6 @@ class testHandler(unittest.TestCase):
     def test_ShouldListenToSubmitHandlerWhenSubmitCalled(self):
         interface = ui.index.Index()
         self.assertEqual(1, len(interface.root.title.__receivedcalls__))
-        self.assertEqual(2, len(interface.root.children.__internaldict__))
+        self.assertTrue(interface.root.title.__ReceivedCall__("Multi-Interface Tool"))
+        self.assertEqual(2, len(interface.root.children))
         interface.Render()
