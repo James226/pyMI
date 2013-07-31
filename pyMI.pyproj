@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4212dcb4-e6b1-444e-8b3f-c53fb75d6897}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>gui.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Compile Include="gui.py" />
+    <Compile Include="Tests\MockObject.py" />
+    <Compile Include="Tests\testHandler.py" />
+    <Compile Include="Tests\__init__.py" />
+    <Compile Include="webserver.py" />
+    <Compile Include="Handlers\index.py" />
+    <Compile Include="Handlers\__init__.py" />
+    <Compile Include="UI\__init__.py" />
+    <Compile Include="UI\GUI\index.py" />
+    <Compile Include="UI\GUI\__init__.py" />
+    <Compile Include="UI\Web\index.py" />
+    <Compile Include="UI\Web\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handlers" />
+    <Folder Include="Tests\" />
+    <Folder Include="UI" />
+    <Folder Include="UI\GUI" />
+    <Folder Include="UI\Web" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>
