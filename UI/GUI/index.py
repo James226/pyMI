@@ -14,6 +14,9 @@ class Index(object):
 
         Button(self.root, name="submitButton", text="Go!", command=lambda:self.Callback('Submit')).pack(pady=10)
 
+    def DisplayFiles(self, files):
+        pass
+
     def SetText(self, val):
         self.label.config(text=val)
         

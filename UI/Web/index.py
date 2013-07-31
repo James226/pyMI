@@ -8,6 +8,9 @@ class Index(object):
     def SetText(self, val):
         self.value = val
 
+    def DisplayFiles(self, files):
+        pass
+
     def Callback(self, name):
         if name in self.Callbacks:
             self.Callbacks[name]()

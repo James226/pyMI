@@ -20,8 +20,15 @@ class testHandler(object):
     def result_SetTextWithTestValueShouldSetTestValue(self):
         self.throw_NotImplementedError()
 
+    def test_DisplayFileShouldDisplayFilesSpecified(self):
+        self.interface.DisplayFiles(['test.txt', 'sample.config', 'web.ini'])
+        self.result_DisplayFileShouldDisplayFilesSpecified()
+
+    def result_DisplayFileShouldDisplayFilesSpecified(self):
+        self.throw_NotImplementedError()
+
     def throw_NotImplementedError(self):
-        unittest.TestCase.fail(self, "'%s.%s' does not implement result for '%s'" % (type(self.interface).__module__, type(self.interface).__name__, inspect.stack()[2][3][5:]))
+        unittest.TestCase.fail(self, "'%s' does not implement result for interface '%s.%s' testing '%s'" % (type(self).__name__, type(self.interface).__module__, type(self.interface).__name__, inspect.stack()[2][3][5:]))
 
 
 class testGUIHandler(unittest.TestCase, testHandler):
