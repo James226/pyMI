@@ -21,7 +21,7 @@ class testHandler(object):
         self.throw_NotImplementedError()
 
     def throw_NotImplementedError(self):
-        raise AssertionError("'%s.%s' does not implement result for '%s'" % (type(self.interface).__module__, type(self.interface).__name__, inspect.stack()[2][3][5:]))
+        unittest.TestCase.fail(self, "'%s.%s' does not implement result for '%s'" % (type(self.interface).__module__, type(self.interface).__name__, inspect.stack()[2][3][5:]))
 
 
 class testGUIHandler(unittest.TestCase, testHandler):
